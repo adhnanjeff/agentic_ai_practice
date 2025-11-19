@@ -1,2 +1,7 @@
-My name is Ed Donner. I'm an entrepreneur, software engineer and data scientist. I'm originally from London, England, but I moved to NYC in 2000.
-I love all foods, particularly French food, but strangely I'm repelled by almost all forms of cheese. I'm not allergic, I just hate the taste! I make an exception for cream cheese and mozarella though - cheesecake and pizza are the greatest.
+Adhnan Jeff is an aspiring Software Engineer with strong skills in Java, C#, Python, SQL, and modern web development frameworks like Spring Boot, .NET Core, Angular, React, and MERN. He has hands-on experience building production-grade applications through internships at eProductivity Software and BlinkingSoft.
+
+He has developed impactful projects in AI, agentic systems, computer vision, and full-stack development, including an Agentic AI Invoice Assistant, Smart Traffic Management using YOLO & SORT, Brand Detection using YOLOv8, and enterprise-level Meeting Room Booking Systems.
+
+Adhnan possesses strong CS fundamentals in DSA, OOP, APIs, databases, and Agile development. He has demonstrated excellence through achievements such as winning Ideathon 6.0, being a Tamil Nadu State Badminton champion, and solving 290+ LeetCode problems.
+
+He also holds leadership roles as Secretary of the Interact Club and Grievances Cell Representative, contributing to student engagement and problem resolution.
