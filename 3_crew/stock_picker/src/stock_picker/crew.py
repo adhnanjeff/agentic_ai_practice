@@ -1,12 +1,18 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
-from crewai_tools import SerperDevTool
 from pydantic import BaseModel, Field
 from typing import List
 from .tools.push_tool import PushNotificationTool
 from crewai.memory import LongTermMemory, ShortTermMemory, EntityMemory
 from crewai.memory.storage.rag_storage import RAGStorage
 from crewai.memory.storage.ltm_sqlite_storage import LTMSQLiteStorage
+
+try:
+    from crewai_tools import SerperDevTool
+    SERPER_AVAILABLE = True
+except ImportError:
+    SERPER_AVAILABLE = False
+    print("SerperDevTool not available. Agents will work without web search capabilities.")
 
 class TrendingCompany(BaseModel):
     """ A company that is in the news and attracting attention """
@@ -39,13 +45,29 @@ class StockPicker():
 
     @agent
     def trending_company_finder(self) -> Agent:
+        tools = []
+        if SERPER_AVAILABLE:
+            try:
+                tools = [SerperDevTool()]
+            except Exception as e:
+                print(f"Failed to initialize SerperDevTool: {e}. Agent will work without web search.")
+                tools = []
+        
         return Agent(config=self.agents_config['trending_company_finder'],
-                     tools=[SerperDevTool()], memory=True)
+                     tools=tools, memory=True)
     
     @agent
     def financial_researcher(self) -> Agent:
+        tools = []
+        if SERPER_AVAILABLE:
+            try:
+                tools = [SerperDevTool()]
+            except Exception as e:
+                print(f"Failed to initialize SerperDevTool: {e}. Agent will work without web search.")
+                tools = []
+        
         return Agent(config=self.agents_config['financial_researcher'], 
-                     tools=[SerperDevTool()])
+                     tools=tools)
 
     @agent
     def stock_picker(self) -> Agent:
